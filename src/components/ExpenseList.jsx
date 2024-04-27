@@ -31,7 +31,6 @@ const ExpenseList = () => {
     // State variable 
     const [isedit, setIsedit] = useState(false)
     const [editid, setEditid] = useState("")
-    const [salary, setSalary] = useState();
     const [category, setcategory] = useState('');
     const [amount, setAmount] = useState(0);
     const [ind, setInd] = useState('');
@@ -88,8 +87,8 @@ const ExpenseList = () => {
         setExpenses(uparr);
         setAmount(0)
         setcategory('')
-        setInd(-1)
-        if (ind != -1) {
+        setEditid('')
+        if (editid != -1) {
             toast.success("Updated")
         }
 
