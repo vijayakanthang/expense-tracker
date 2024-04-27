@@ -41,7 +41,7 @@ const Userlist = () => {
     const handleDelete = async(index) => {
         var v = expense[index]
         var itemid = v._id
-        const response = await axios.delete(`http://localhost:8080/del/${itemid}`)
+        const response = await axios.delete(`https://render.com/docs/bun-version/del/${itemid}`)
         let deletedArray = expense.filter((exp, i) => index != i)
         setExpenses(deletedArray);
        
@@ -58,7 +58,7 @@ const Userlist = () => {
             amount: amount,
         }
         if (temp.category != ('') && temp.amount != ('')) {
-            const response= await axios.post("http://localhost:8080/api/",{category: category,amount: amount,})
+            const response= await axios.post("https://render.com/docs/bun-version/api/",{category: category,amount: amount,})
             setExpenses([...expense,response.data])
             setcategory('');
             setAmount(0);
@@ -81,7 +81,7 @@ const Userlist = () => {
     };
     // Update button
     const handleUpdateBtn = async() => {
-        const response= await axios.put(`http://localhost:8080/api/${editid}`,{category: category, amount: amount })
+        const response= await axios.put(`https://render.com/docs/bun-version/api/${editid}`,{category: category, amount: amount })
         const uparr=expense.map((item)=>{
             return item._id===editid? {...item,category,amount} : item;
         })
