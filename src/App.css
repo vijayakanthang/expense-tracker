@@ -1,0 +1,36 @@
+.red{
+    padding: 2px;
+    font-style:bold;
+    font-size: larger;
+    color:black;
+    height: 30px;
+    width: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    background-color: brown;
+}
+
+.green{
+    padding: 2px;
+    font-style:bold;
+    font-size: larger;
+    color:black;
+    height: 30px;
+    width: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    background-color: green;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.one{
+    display: block;
+
+}
+
+.two{padding-top: 50px;
+    display: block;
+}
