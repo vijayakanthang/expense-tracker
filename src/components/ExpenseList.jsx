@@ -6,7 +6,7 @@ import Bin from '../assets/bin.png'
 import Pen from '../assets/pen.png'
 
 
-const Userlist = () => {
+const ExpenseList = () => {
 
     const [expense, setExpenses] = useState([
         
@@ -172,6 +172,6 @@ const Userlist = () => {
     )
 }
 
-export default Userlist
+export default ExpenseList
 
 
