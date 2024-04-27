@@ -1,4 +1,4 @@
-import { useState ,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import './stylesheet/Userlist.css'
 import { toast } from 'react-toastify'
 import axios from 'axios'
@@ -9,24 +9,24 @@ import Pen from '../assets/pen.png'
 const ExpenseList = () => {
 
     const [expense, setExpenses] = useState([
-        
+
     ])
 
-    useEffect(()=>{
-      const fetchData=async()=>{
-        try{
-        const response=await axios.get("https://expense-server-sdvy.onrender.com/get")
-        setExpenses(response.data)
-      }
-      catch (error){
-        console.error(error)
-      }
-    
-    }
-    fetchData()
-    },[])
-  
-     
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("https://expense-server-sdvy.onrender.com/get")
+                setExpenses(response.data)
+            }
+            catch (error) {
+                console.error(error)
+            }
+
+        }
+        fetchData()
+    }, [])
+
+
 
     // State variable 
     const [isedit, setIsedit] = useState(false)
@@ -37,36 +37,36 @@ const ExpenseList = () => {
     const [date, setDate] = useState('')
 
     // Delete operation
-    const handleDelete = async(index) => {
+    const handleDelete = async (index) => {
         var v = expense[index]
         var itemid = v._id
         const response = await axios.delete(`https://expense-server-sdvy.onrender.com/del/${itemid}`)
         let deletedArray = expense.filter((exp, i) => index != i)
         setExpenses(deletedArray);
-       
-        
+
+
     }
 
     // Submit Button
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         
-        let temp = {
-            ind: expense.length,
-            date: today,
-            category: category,
-            amount: amount,
-        }
-        if (temp.category != ('') && temp.amount != ('')) {
-            const response= await axios.post("https://expense-server-sdvy.onrender.com/api/",{category: category,amount: amount,})
-            setExpenses([...expense,response.data])
-            setcategory('');
-            setAmount(0);
-            toast.success('Submited');
-        }
-        else {
-            toast.error("Enter Valid Details")
-        }
-
+            let temp = {
+                ind: expense.length,
+                date: today,
+                category: category,
+                amount: amount,
+            }
+            if (temp.category != ('') && temp.amount != ('')) {
+                const response = await axios.post("https://expense-server-sdvy.onrender.com/api/", { category: category, amount: amount, })
+                setExpenses([...expense, response.data])
+                setcategory('');
+                setAmount(0);
+                toast.success('Submited');
+            }
+            else {
+                toast.error("Enter Valid Details")
+            }
+        
     }
     // input Update button
     const handleUpdate = (index) => {
@@ -79,28 +79,29 @@ const ExpenseList = () => {
 
     };
     // Update button
-    const handleUpdateBtn = async() => {
-        const response= await axios.put(`https://expense-server-sdvy.onrender.com/api/${editid}`,{category: category, amount: amount })
-        const uparr=expense.map((item)=>{
-            return item._id===editid? {...item,category,amount} : item;
+    const handleUpdateBtn = async () => {
+        const response = await axios.put(`https://expense-server-sdvy.onrender.com/api/${editid}`, { category: category, amount: amount })
+        const uparr = expense.map((item) => {
+            return item._id === editid ? { ...item, category, amount } : item;
         })
         setExpenses(uparr);
         setAmount(0)
         setcategory('')
-        setEditid('')
-        if (editid != -1) {
+        if (editid!="") {
             toast.success("Updated")
         }
+        setEditid('')
 
     }
-   
+
     // Sum
     var sum = 0;
     var balance = expense.map((i) => {
-        if (i.category == 'Salary'){
-        sum = Number(sum) + Number(i.amount)}
-        else{
-            sum -=Number(i.amount)
+        if (i.category == 'Salary') {
+            sum = Number(sum) + Number(i.amount)
+        }
+        else {
+            sum -= Number(i.amount)
         }
     })
 
@@ -114,7 +115,7 @@ const ExpenseList = () => {
             <>
                 <div className='glowing-border'>
                     <div className='inputbox'>
-                        
+
                         <h3>Expenses</h3>
                         <select className="cat" value={category} onChange={(e) => setcategory(e.target.value)}>
                             <option value="" disabled selected> Category</option>
@@ -149,7 +150,7 @@ const ExpenseList = () => {
                                     <td>{exp.date}</td>
                                     <td>{exp.category}</td>
                                     <td>{exp.amount}</td>
-                                    <td><button className='delete'onClick={() => handleDelete(index)}><img src={Bin}  height={30} width={30} alt='Delete'></img></button></td>
+                                    <td><button className='delete' onClick={() => handleDelete(index)}><img src={Bin} height={30} width={30} alt='Delete'></img></button></td>
                                     <td><button className="update" onClick={() => handleUpdate(index)}><img src={Pen} height={30} width={30} alt='Edit'></img></button></td>
                                 </tr>
 
@@ -157,7 +158,7 @@ const ExpenseList = () => {
                             )}
                             <tr>
                                 <td colSpan={3}>Total Expenses</td>
-                                <td className={sum>0? 'green':'red'} >{sum}</td>
+                                <td className={sum > 0 ? 'green' : 'red'} >{sum}</td>
                                 <td cl colSpan={2}></td>
                             </tr>
                         </tbody>
@@ -165,7 +166,7 @@ const ExpenseList = () => {
                     </table>
                 </div>
             </>
-                            
+
         </div>
 
     )
