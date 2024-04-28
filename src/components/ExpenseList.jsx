@@ -106,7 +106,7 @@ const ExpenseList = () => {
     })
 
     // Date
-    var today = new Date().toLocaleDateString();
+    var today = new Date().toLocaleDateString('en-GB');
 
 
 
