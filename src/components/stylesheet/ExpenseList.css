@@ -1,8 +1,12 @@
 .tot{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     margin-top: 1px;
     padding-top: 10px ;
     padding:20px;
+   
     
 }
 .table{
@@ -22,8 +26,8 @@ td{
     color: white;
     margin: 10px;
     background-color: #2c333e;
-    height: 20px;
-    width: 75px;
+    height: 3rem;
+    width: 6rem;
     justify-content: center;
     align-items: center;
     border: collapse 2px;
@@ -32,9 +36,12 @@ td{
 
 thead{
     font-family: Copperplate Gothic Light; 
+    font-size: large;
     color: black;
     background-color:  rgb(197, 164, 79);
     padding: 1%;
+    height: 3rem;
+    width: 6rem;
 
 }
 

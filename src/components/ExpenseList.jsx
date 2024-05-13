@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './stylesheet/Userlist.css'
+import './stylesheet/ExpenseList.css'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import Bin from '../assets/bin.png'
