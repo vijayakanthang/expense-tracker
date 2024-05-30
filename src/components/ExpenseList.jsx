@@ -132,7 +132,8 @@ const ExpenseList = () => {
                             <button className='inputbtn' type='submit' onClick={() => handleSubmit(category, amount)}>Submit</button>
                             <button className='inputbtn' type="submit" onClick={() => handleUpdateBtn()}>Update</button>
                         </div>
-                    </div></div>
+                    </div>
+                    </div>
                 <div className='tbl'>
                     <h3 className='userh1'>Expense List</h3>
                     <table className="table">
