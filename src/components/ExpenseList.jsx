@@ -89,6 +89,26 @@ const ExpenseList = () => {
 
     return (
         <div className="container">
+            <div className="input-container">
+                <div className="inputbox">
+                    <h3>Expenses</h3>
+                    <select className="cat" value={category} onChange={(e) => setcategory(e.target.value)}>
+                        <option value="" disabled selected>Category</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Food">Food</option>
+                        <option value="Electricity">Electricity</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="number" className="number" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                    <div className="buttons">
+                        <button className="inputbtn" type="submit" onClick={handleSubmit}>Submit</button>
+                        <button className="inputbtn" type="submit" onClick={handleUpdateBtn}>Update</button>
+                    </div>
+                </div>
+            </div>
             <div className="table-container">
                 <h3 className="userh1">Expense List</h3>
                 <table className="table">
@@ -127,26 +147,6 @@ const ExpenseList = () => {
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div className="input-container">
-                <div className="inputbox">
-                    <h3>Expenses</h3>
-                    <select className="cat" value={category} onChange={(e) => setcategory(e.target.value)}>
-                        <option value="" disabled selected>Category</option>
-                        <option value="Salary">Salary</option>
-                        <option value="Rent">Rent</option>
-                        <option value="Food">Food</option>
-                        <option value="Electricity">Electricity</option>
-                        <option value="Shopping">Shopping</option>
-                        <option value="Groceries">Groceries</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <input type="number" className="number" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
-                    <div className="buttons">
-                        <button className="inputbtn" type="submit" onClick={handleSubmit}>Submit</button>
-                        <button className="inputbtn" type="submit" onClick={handleUpdateBtn}>Update</button>
-                    </div>
-                </div>
             </div>
         </div>
     );

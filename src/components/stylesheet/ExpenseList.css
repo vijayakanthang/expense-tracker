@@ -109,5 +109,12 @@ thead {
 
     .table-container, .input-container {
         max-width: 100%;
+        margin-top: 10px; /* Add some margin to separate the elements */
+        padding: 15px;
+    }
+
+    .inputbox select, .inputbox input, .inputbox button {
+        width: 100%;
+        max-width: none;
     }
 }
