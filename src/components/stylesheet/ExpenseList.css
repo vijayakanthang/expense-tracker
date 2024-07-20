@@ -1,198 +1,113 @@
-.tot{
+.container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    margin-top: 1px;
-    padding-top: 10px ;
-    padding:20px;
-   
-    
-}
-.table{
-    border: 2px transparent #777c2e;
-    text-align: center;
-    background-image: linear-gradient(
-			135deg,
-			#1b2028 30%,
-			#2c333e 100%,
-            
-		);
-
-   
-
-}
-td{
-    color: white;
-    margin: 10px;
-    background-color: #2c333e;
-    height: 3rem;
-    width: 6rem;
-    justify-content: center;
-    align-items: center;
-    border: collapse 2px;
-    
-}
-
-thead{
-    font-family: Copperplate Gothic Light; 
-    font-size: large;
-    color: black;
-    background-color:  rgb(197, 164, 79);
-    padding: 1%;
-    height: 3rem;
-    width: 6rem;
-
-}
-
-.tbl{
+    align-items: flex-start; /* Align items at the start of the container */
     padding: 20px;
-    justify-content: center;
-    text-align: center;
-
+    gap: 20px; /* Gap between the table and input box */
+    flex-wrap: wrap; /* Ensure responsive behavior */
 }
-/* ----------------------------------------------- */
 
+.table-container, .input-container {
+    background-color: #1b2028;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.table-container {
+    flex: 1; /* Allow the table container to grow */
+    max-width: 600px;
+}
 
-.inputbox{
-    position: relative;
-    font-family:  Copperplate Gothic Light;
-    height: 280px;
-    width: 220px;
+.input-container {
+    flex: 1; /* Allow the input container to grow */
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    border: 1px solid transparent;   
-    background-color: #1b2028;
-	border-radius: 16px;
-    background-image: linear-gradient(
-		135deg,
-		rgba(#752e7c, 0.35),
-		rgba(#734a58, 0.1) 15%,
-		#1b2028 20%,
-		#1b2028 100%
-	);
-    &:after {
-		content: "";
-		display: block;
-		top: -5px;
-		left: -5px;
-		bottom: -5px;
-		right: -5px;
-		z-index: -1;
-		position: absolute;
-		border-radius: 16px;
-		background-image: linear-gradient(
-			135deg,
-			#777c2e,
-			#72734a 20%,
-			#1b2028 30%,
-			#2c333e 100%
-		);
-	}
-} 
-
-.inputbox:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
-
-
-.input{
-    height: 30px;
-    border-radius: 20px;
-    border: rgba(160, 156, 156, 0.786) ridge 3px ;
-    
+    justify-content: space-between;
 }
 
-.inputbtn{
-    color: whitesmoke;
-    height: 30px;
-    border-radius: 20px;
-    border: rgba(160, 156, 156, 0.786) ridge 3px ;
-    background-color:  #2c333e ; 
-   
-
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-image: linear-gradient(135deg, #1b2028 30%, #2c333e 100%);
 }
-.buttons{
-    width: 200px;
+
+td, th {
+    padding: 10px;
+    color: white;
+    background-color: #2c333e;
+    border: 1px solid #777c2e;
+}
+
+thead {
+    font-family: Copperplate Gothic Light;
+    font-size: large;
+    color: black;
+    background-color: rgb(197, 164, 79);
+}
+
+.inputbox {
+    font-family: Copperplate Gothic Light;
     display: flex;
-    justify-content: space-around;
-    
-    
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
 
-.cat{
+.inputbox select, .inputbox input, .inputbox button {
     text-align: center;
     color: grey;
     height: 37px;
-    width:170px;
-    border: rgba(160, 156, 156, 0.786) ridge 3px ;
+    width: 100%;
+    max-width: 170px;
+    border: rgba(160, 156, 156, 0.786) ridge 3px;
     border-radius: 20px;
-    background-image: linear-gradient(
-			135deg,
-			#1b2028 30%,
-			#2c333e 60%,
-            #777c2e 90%,
-			#72734a 100%
-            
-		);
-
+    background-image: linear-gradient(135deg, #1b2028 30%, #2c333e 60%, #777c2e 90%, #72734a 100%);
 }
 
-.number{
-    text-align: center;
-    color: grey;
-    height: 27px;
-    width:170px;
-    border: rgba(160, 156, 156, 0.786) ridge 3px ;
+.inputbtn {
+    color: whitesmoke;
+    background-color: #2c333e;
     border-radius: 20px;
-    background-image: linear-gradient(
-        135deg,
-        #1b2028 30%,
-        #2c333e 60%,
-        #777c2e 90%,
-        #72734a 100%
-        
-    );
-
 }
 
-/* ---------------------------- */
-
-.delete{   
-    background-color: transparent;
-    border: transparent;
-
-   
+.buttons {
+    display: flex;
+    gap: 10px;
 }
 
-.update{
-    background-color: transparent;
-    border: transparent;
-
-    
-}
-
-/* ----------------------------- */
-
-.userh1{
-    font-family: Copperplate Gothic Light; 
+.userh1 {
+    font-family: Copperplate Gothic Light;
     color: silver;
     font-size: x-large;
 }
 
-/* -------------------------------- */
-.red{
+.red {
     color: rgb(0, 0, 0);
     background-color: rgba(159, 27, 27, 0.863);
 }
 
-.green{
-    border-radius: 2%;
+.green {
     color: rgb(0, 0, 0);
     background-color: rgba(24, 187, 45, 0.863);
+}
+
+.delete, .update {
+    background-color: transparent;
+    border: transparent;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table-container, .input-container {
+        max-width: 100%;
+    }
 }
